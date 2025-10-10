@@ -22,6 +22,9 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import static org.testframe.api.Asserters.assertInRange;
+import static org.testframe.api.Asserters.assertMinimum;
+
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
@@ -31,9 +34,8 @@ import org.testng.annotations.Test;
  */
 public class ExtendedRandomNGTest {
     
-    public ExtendedRandomNGTest() {
-    }
-
+    private static final Random RANDOM = new Random(System.currentTimeMillis());
+    
     /**
      * Test of the nextInt function, of the ExtendedRandom class.
      */
@@ -54,17 +56,24 @@ public class ExtendedRandomNGTest {
     }
 
     /**
-     * Test of nextInt method, of class ExtendedRandom.
+     * Another test of the nextInt function, of the ExtendedRandom class.
      */
-//    @Test
+    @Test
     public void testNextIntBounded() {
-        System.out.println("nextInt");
-        int bound = 0;
-        int expResult = 0;
-        int result = ExtendedRandom.nextInt(bound);
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int bound = RANDOM.nextInt(2048) + 512;
+        int numberOfCalls = 3 * bound / 2;
+        Set<Integer> numbers = new HashSet<>(bound);
+        for (int i = 0; i < numberOfCalls; i++) {
+            int actual = ExtendedRandom.nextInt(bound);
+            assertInRange(0, actual, bound);
+            numbers.add(actual);
+        }
+        int minimum = 15 * bound / 16;
+        int actual = numbers.size();
+        String msg = "Expected at least " + minimum
+                + " distinct integers out of " + numberOfCalls + ", got " + actual;
+        System.out.println(msg);
+        assertMinimum(minimum, actual, msg);
     }
 
     /**
