@@ -34,9 +34,8 @@ public class ExtendedRandom {
         return RANDOM.nextInt();
     }
     
-    // TODO: Write tests for this
     public static int nextInt(int bound) {
-        return Integer.MAX_VALUE;
+        return RANDOM.nextInt(bound);
     }
     
     // TODO: Write tests for this
