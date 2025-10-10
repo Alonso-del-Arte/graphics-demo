@@ -61,7 +61,7 @@ public class ExtendedRandomNGTest {
     @Test
     public void testNextIntBounded() {
         int bound = RANDOM.nextInt(2048) + 512;
-        int numberOfCalls = 3 * bound / 2;
+        int numberOfCalls = 24 * bound;
         Set<Integer> numbers = new HashSet<>(bound);
         for (int i = 0; i < numberOfCalls; i++) {
             int actual = ExtendedRandom.nextInt(bound);
@@ -71,7 +71,8 @@ public class ExtendedRandomNGTest {
         int minimum = 15 * bound / 16;
         int actual = numbers.size();
         String msg = "Expected at least " + minimum
-                + " distinct integers out of " + numberOfCalls + ", got " + actual;
+                + " distinct integers after " + numberOfCalls + " calls, got " 
+                + actual;
         System.out.println(msg);
         assertMinimum(minimum, actual, msg);
     }
