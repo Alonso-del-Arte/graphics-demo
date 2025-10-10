@@ -38,9 +38,8 @@ public class ExtendedRandom {
         return RANDOM.nextInt(bound);
     }
     
-    // TODO: Write tests for this
     public static Color nextColor() {
-        return Color.BLACK;
+        return new Color(nextInt());
     }
     
     // TODO: Write tests for this
