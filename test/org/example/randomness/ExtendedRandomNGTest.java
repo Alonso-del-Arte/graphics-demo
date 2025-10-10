@@ -125,7 +125,7 @@ public class ExtendedRandomNGTest {
             int r = color.getRed() / 64;
             int g = color.getGreen() / 64;
             int b = color.getBlue() / 64;
-            int a = color.getAlpha();
+            int a = color.getAlpha() & 192;
             this.value = (byte) (a + (r << 4) + (g << 2) + b);
         }
         
