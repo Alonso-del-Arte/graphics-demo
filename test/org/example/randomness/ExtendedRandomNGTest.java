@@ -111,8 +111,8 @@ public class ExtendedRandomNGTest {
         public boolean equals(Object obj) {
             if (this == obj) return true;
             if (obj == null) return false;
-            if (obj instanceof DownsampledColor) {
-                return this.value == ((DownsampledColor) obj).value;
+            if (obj instanceof DownsampledColor other) {
+                return this.value == other.value;
             } else return false;
         }
         
