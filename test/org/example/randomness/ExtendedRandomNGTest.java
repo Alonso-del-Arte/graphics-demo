@@ -78,16 +78,24 @@ public class ExtendedRandomNGTest {
     }
 
     /**
-     * Test of nextColor method, of class ExtendedRandom.
+     * Test of the nextColor function, of the ExtendedRandom class.
      */
-//    @Test
+    @Test
     public void testNextColor() {
         System.out.println("nextColor");
-        Color expResult = null;
-        Color result = ExtendedRandom.nextColor();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int minimum = 64;
+        Set<DownsampledColor> colors = new HashSet<>(minimum);
+        int numberOfCalls = 4096;
+        for (int i = 0; i < numberOfCalls; i++) {
+            Color color = ExtendedRandom.nextColor();
+            DownsampledColor downsampled = new DownsampledColor(color);
+            colors.add(downsampled);
+        }
+        int actual = colors.size();
+        String msg = "Expected at least " + minimum 
+                + " downsampled colors, got " + actual;
+        System.out.println(msg);
+        assertMinimum(minimum, actual, msg);
     }
 
     /**
