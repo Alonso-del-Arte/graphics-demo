@@ -1,0 +1,86 @@
+/*
+ * Copyright (C) 2025 Alonso del Arte
+ *
+ * This program is free software: you can redistribute it and/or modify it under 
+ * the terms of the GNU General Public License as published by the Free Software 
+ * Foundation, either version 3 of the License, or (at your option) any later 
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT 
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more 
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with 
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+package org.example.randomness;
+
+import java.awt.Color;
+import java.awt.Point;
+import static org.testng.Assert.*;
+import org.testng.annotations.Test;
+
+/**
+ * Tests of the ExtendedRandom class.
+ * @author Alonso del Arte
+ */
+public class ExtendedRandomNGTest {
+    
+    public ExtendedRandomNGTest() {
+    }
+
+    /**
+     * Test of nextInt method, of class ExtendedRandom.
+     */
+    @Test
+    public void testNextInt() {
+        System.out.println("nextInt");
+        int expResult = 0;
+        int result = ExtendedRandom.nextInt();
+        assertEquals(result, expResult);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of nextInt method, of class ExtendedRandom.
+     */
+    @Test
+    public void testNextIntBounded() {
+        System.out.println("nextInt");
+        int bound = 0;
+        int expResult = 0;
+        int result = ExtendedRandom.nextInt(bound);
+        assertEquals(result, expResult);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of nextColor method, of class ExtendedRandom.
+     */
+    @Test
+    public void testNextColor() {
+        System.out.println("nextColor");
+        Color expResult = null;
+        Color result = ExtendedRandom.nextColor();
+        assertEquals(result, expResult);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of nextPoint method, of class ExtendedRandom.
+     */
+    @Test
+    public void testNextPoint() {
+        System.out.println("nextPoint");
+        Point expResult = null;
+        Point result = ExtendedRandom.nextPoint();
+        assertEquals(result, expResult);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    
+}
