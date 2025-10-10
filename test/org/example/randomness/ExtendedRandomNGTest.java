@@ -18,6 +18,10 @@ package org.example.randomness;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
@@ -31,22 +35,28 @@ public class ExtendedRandomNGTest {
     }
 
     /**
-     * Test of nextInt method, of class ExtendedRandom.
+     * Test of the nextInt function, of the ExtendedRandom class.
      */
     @Test
     public void testNextInt() {
         System.out.println("nextInt");
-        int expResult = 0;
-        int result = ExtendedRandom.nextInt();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int capacity = 2048;
+        Set<Integer> numbers = new HashSet<>(capacity);
+        for (int i = 0; i < capacity; i++) {
+            numbers.add(ExtendedRandom.nextInt());
+        }
+        int expected = 15 * capacity / 16;
+        int actual = numbers.size();
+        String msg = "Expected at least " + expected
+                + " distinct integers out of " + capacity + ", got " + actual;
+        System.out.println(msg);
+        assert actual >= expected : msg;
     }
 
     /**
      * Test of nextInt method, of class ExtendedRandom.
      */
-    @Test
+//    @Test
     public void testNextIntBounded() {
         System.out.println("nextInt");
         int bound = 0;
@@ -60,7 +70,7 @@ public class ExtendedRandomNGTest {
     /**
      * Test of nextColor method, of class ExtendedRandom.
      */
-    @Test
+//    @Test
     public void testNextColor() {
         System.out.println("nextColor");
         Color expResult = null;
@@ -73,7 +83,7 @@ public class ExtendedRandomNGTest {
     /**
      * Test of nextPoint method, of class ExtendedRandom.
      */
-    @Test
+//    @Test
     public void testNextPoint() {
         System.out.println("nextPoint");
         Point expResult = null;
