@@ -121,7 +121,7 @@ public class ExtendedRandomNGTest {
             return this.value;
         }
         
-        private DownsampledColor(Color color) {
+        DownsampledColor(Color color) {
             int r = color.getRed() / 64;
             int g = color.getGreen() / 64;
             int b = color.getBlue() / 64;
