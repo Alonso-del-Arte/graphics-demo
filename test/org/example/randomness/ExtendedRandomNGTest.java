@@ -103,4 +103,32 @@ public class ExtendedRandomNGTest {
         fail("The test case is a prototype.");
     }
     
+    private final static class DownsampledColor {
+        
+        private final byte value;
+        
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) return true;
+            if (obj == null) return false;
+            if (obj instanceof DownsampledColor) {
+                return this.value == ((DownsampledColor) obj).value;
+            } else return false;
+        }
+        
+        @Override
+        public int hashCode() {
+            return this.value;
+        }
+        
+        private DownsampledColor(Color color) {
+            int r = color.getRed() / 64;
+            int g = color.getGreen() / 64;
+            int b = color.getBlue() / 64;
+            int a = color.getAlpha();
+            this.value = (byte) (a + (r << 4) + (g << 2) + b);
+        }
+        
+    }
+    
 }
