@@ -20,6 +20,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.Random;
 
 /**
  *
@@ -27,9 +28,10 @@ import java.awt.Point;
  */
 public class ExtendedRandom {
     
-    // TODO: Write tests for this
+    private static final Random RANDOM = new Random();
+    
     public static int nextInt() {
-        return Integer.MIN_VALUE;
+        return RANDOM.nextInt();
     }
     
     // TODO: Write tests for this
