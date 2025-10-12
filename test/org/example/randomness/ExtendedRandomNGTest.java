@@ -83,7 +83,7 @@ public class ExtendedRandomNGTest {
     @Test
     public void testNextColor() {
         System.out.println("nextColor");
-        int minimum = 56;
+        int minimum = 224;
         Set<DownsampledColor> colors = new HashSet<>(minimum);
         int numberOfCalls = 4096;
         for (int i = 0; i < numberOfCalls; i++) {
@@ -130,11 +130,11 @@ public class ExtendedRandomNGTest {
         }
         
         DownsampledColor(Color color) {
-            int r = color.getRed() / 64;
-            int g = color.getGreen() / 64;
-            int b = color.getBlue() / 64;
-            int a = color.getAlpha() & 192;
-            this.value = (byte) (a + (r << 4) + (g << 2) + b);
+            int r = (color.getRed() / 64) << 4;
+            int g = (color.getGreen() / 64) << 2;
+            int b = (color.getBlue() / 64);
+            int a = (color.getAlpha() / 64) << 6;
+            this.value = (byte) (a + r + g + b);
         }
         
     }
