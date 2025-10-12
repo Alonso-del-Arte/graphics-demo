@@ -39,7 +39,7 @@ public class ExtendedRandom {
     }
     
     public static Color nextColor() {
-        return Color.DARK_GRAY;// new Color(nextInt());
+        return new Color(nextInt(), true);
     }
     
     // TODO: Write tests for this
