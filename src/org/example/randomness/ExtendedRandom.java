@@ -49,7 +49,7 @@ public class ExtendedRandom {
     
     // TODO: Write tests for this
     public static Dimension nextDimension() {
-        return new Dimension();
+        return new Dimension(1, 1);
     }
     
 }
