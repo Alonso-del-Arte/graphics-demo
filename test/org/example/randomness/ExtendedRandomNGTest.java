@@ -17,6 +17,7 @@
 package org.example.randomness;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Point;
 import java.util.HashSet;
 import java.util.Random;
@@ -24,6 +25,7 @@ import java.util.Set;
 
 import static org.testframe.api.Asserters.assertInRange;
 import static org.testframe.api.Asserters.assertMinimum;
+import static org.testframe.api.Asserters.assertPositive;
 
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
@@ -109,6 +111,16 @@ public class ExtendedRandomNGTest {
         assertEquals(result, expResult);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testNextDimension() {
+        System.out.println("nextDimension");
+        Dimension dimension = ExtendedRandom.nextDimension();
+        String msg = "Dimension " + dimension.toString() 
+                + " should have positive height and width";
+        assertPositive(dimension.height, msg);
+        assertPositive(dimension.width, msg);
     }
     
     private final static class DownsampledColor {
