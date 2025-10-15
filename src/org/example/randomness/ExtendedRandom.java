@@ -47,4 +47,9 @@ public class ExtendedRandom {
         return new Point();
     }
     
+    // TODO: Write tests for this
+    public static Dimension nextDimension() {
+        return new Dimension();
+    }
+    
 }
