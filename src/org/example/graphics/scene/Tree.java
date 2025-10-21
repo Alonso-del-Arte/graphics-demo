@@ -27,9 +27,10 @@ import java.awt.Point;
  */
 public class Tree {
     
-    // TODO: Write tests for this
+    private final Color upperColor;
+    
     public Color getLeafColor() {
-        return Color.WHITE;
+        return this.upperColor;
     }
     
     // TODO: Write tests for this
@@ -38,7 +39,7 @@ public class Tree {
     }
     
     public Tree(Color leafColor, Dimension size) {
-        //
+        this.upperColor = leafColor;
     }
     
 }
