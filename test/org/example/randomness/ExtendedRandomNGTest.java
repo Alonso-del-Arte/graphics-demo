@@ -114,8 +114,7 @@ public class ExtendedRandomNGTest {
     }
     
     @Test
-    public void testNextDimension() {
-        System.out.println("nextDimension");
+    public void testNextDimensionIsPositive() {
         Dimension dimension = ExtendedRandom.nextDimension();
         String msg = "Dimension " + dimension.toString() 
                 + " should have positive height and width";
