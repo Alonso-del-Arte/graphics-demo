@@ -139,6 +139,27 @@ public class ExtendedRandomNGTest {
         assertMinimum(minimum, actual, msg);
     }
     
+    @Test
+    public void testNextDimensionVariesWidthAndHeight() {
+        int initialCapacity = RANDOM.nextInt(32) + 128;
+        Set<Integer> heights = new HashSet<>(initialCapacity);
+        Set<Integer> widths = new HashSet<>(initialCapacity);
+        int numberOfCalls = initialCapacity * 2;
+        for (int i = 0; i < numberOfCalls; i++) {
+            Dimension dimension = ExtendedRandom.nextDimension();
+            heights.add(dimension.height);
+            widths.add(dimension.width);
+        }
+        int minimum = 3 * numberOfCalls / 5;
+        String msg = "After " + numberOfCalls 
+                + " calls, there should be at least " + minimum 
+                + " distinct heights and distinct widths";
+        int actualWidths = widths.size();
+        assertMinimum(minimum, actualWidths, msg);
+        int actualHeights = heights.size();
+        assertMinimum(minimum, actualHeights, msg);
+    }
+    
     private final static class DownsampledColor {
         
         private final byte value;
