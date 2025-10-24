@@ -54,4 +54,9 @@ public class ExtendedRandom {
         return new Dimension(1, counter);
     }
     
+    // TODO: Write tests for this
+    public static Dimension nextDimension(Dimension bound) {
+        return new Dimension(bound.width + 1, bound.height + 1);
+    }
+    
 }
