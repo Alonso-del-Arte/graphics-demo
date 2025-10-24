@@ -8,4 +8,5 @@ perspective.
 The idea is that this will be a very simple program that draws a bunch of trees 
 near a shore and allows the user to move trees around.
 
-Java 21, TestNG 6.14.3, TestFrame 1.01.
+This project is for Java 21, with the test dependencies being TestNG 6.14.3 and 
+TestFrame 1.01.
