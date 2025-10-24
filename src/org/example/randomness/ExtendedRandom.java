@@ -51,7 +51,7 @@ public class ExtendedRandom {
     // TODO: Write tests for this
     public static Dimension nextDimension() {
         counter++;
-        return new Dimension(1, counter);
+        return new Dimension(2 * counter + 1, counter);
     }
     
     // TODO: Write tests for this
