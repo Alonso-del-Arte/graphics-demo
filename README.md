@@ -3,7 +3,7 @@
 WORK IN PROGRESS
 
 For a Medium article to demonstrate the basics of GUI programming from the Java 
-perspective.
+perspective. I'll be sure to put the link here.
 
 The idea is that this will be a very simple program that draws a bunch of trees 
 near a shore and allows the user to move trees around.
