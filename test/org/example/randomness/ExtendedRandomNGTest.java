@@ -36,6 +36,13 @@ import org.testng.annotations.Test;
  */
 public class ExtendedRandomNGTest {
     
+    private static enum Direction {
+        
+        NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST, 
+        STATIONARY
+        
+    }
+    
     private static final Random RANDOM = new Random(System.currentTimeMillis());
     
     /**
@@ -158,6 +165,32 @@ public class ExtendedRandomNGTest {
         assertMinimum(minimum, actualWidths, msg);
         int actualHeights = heights.size();
         assertMinimum(minimum, actualHeights, msg);
+    }
+    
+    private static Direction determineDirection(Dimension a, Dimension b) {
+        int x = Integer.signum(a.height - b.height) << 2;
+        int y = Integer.signum(a.width - b.width);
+        int dir = x + y;
+        switch (dir) {
+            case -5:
+                return Direction.NORTHWEST;
+            case -4:
+                return Direction.NORTH;
+            case -3:
+                return Direction.NORTHEAST;
+            case -1:
+                return Direction.WEST;
+            case 1:
+                return Direction.EAST;
+            case 3:
+                return Direction.SOUTHWEST;
+            case 4:
+                return Direction.SOUTH;
+            case 5:
+                return Direction.SOUTHEAST;
+            default:
+                return Direction.STATIONARY;
+        }
     }
     
     private final static class DownsampledColor {
