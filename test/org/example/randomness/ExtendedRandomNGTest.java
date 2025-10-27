@@ -19,6 +19,7 @@ package org.example.randomness;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -167,9 +168,10 @@ public class ExtendedRandomNGTest {
         assertMinimum(minimum, actualHeights, msg);
     }
     
-    private static Direction determineDirection(Dimension a, Dimension b) {
-        int x = Integer.signum(a.height - b.height) << 2;
-        int y = Integer.signum(a.width - b.width);
+    private static Direction determineDirection(Dimension prevDim, 
+            Dimension currDim) {
+        int x = Integer.signum(prevDim.height - currDim.height) << 2;
+        int y = Integer.signum(prevDim.width - currDim.width);
         int dir = x + y;
         return switch (dir) {
             case -5 -> Direction.NORTHWEST;
@@ -182,6 +184,36 @@ public class ExtendedRandomNGTest {
             case 5 -> Direction.SOUTHEAST;
             default -> Direction.STATIONARY;
         };
+    }
+    
+    @Test
+    public void testNextDimensionVariesDirectionOfBottomRightCorner() {
+        Direction[] dirArray = Direction.values();
+        int initialCapacity = dirArray.length;
+        Set<Direction> directions = new HashSet<>(initialCapacity);
+        directions.addAll(Arrays.asList(dirArray));
+        Set<Direction> dirsWithoutStationary = new HashSet<>(directions);
+        dirsWithoutStationary.remove(Direction.STATIONARY);
+        int numberOfCalls = 16 * initialCapacity + RANDOM.nextInt(32);
+        Set<Direction> actual = new HashSet<>(initialCapacity);
+        Dimension prevDim = ExtendedRandom.nextDimension();
+        for (int i = 0; i < numberOfCalls; i++) {
+            Dimension currDim = ExtendedRandom.nextDimension();
+            actual.add(determineDirection(prevDim, currDim));
+            prevDim = currDim;
+        }
+        String stationaryStr = Direction.STATIONARY.toString();
+        String msg = "After " + numberOfCalls + " calls, expecting " 
+                + actual.toString() + " to match " 
+                + dirsWithoutStationary.toString() + " possibly including " 
+                + stationaryStr;
+        String inclStationary = actual.contains(Direction.STATIONARY) 
+                ? "includes" : "does not include";
+        System.out.println("Actual directions " 
+                + inclStationary + ' ' 
+                + stationaryStr);
+        assert actual.equals(dirsWithoutStationary) || actual.equals(directions) 
+                : msg;
     }
     
     private final static class DownsampledColor {
