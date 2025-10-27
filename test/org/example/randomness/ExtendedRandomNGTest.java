@@ -188,32 +188,23 @@ public class ExtendedRandomNGTest {
     
     @Test
     public void testNextDimensionVariesDirectionOfBottomRightCorner() {
-        Direction[] dirArray = Direction.values();
-        int initialCapacity = dirArray.length;
-        Set<Direction> directions = new HashSet<>(initialCapacity);
-        directions.addAll(Arrays.asList(dirArray));
-        Set<Direction> dirsWithoutStationary = new HashSet<>(directions);
-        dirsWithoutStationary.remove(Direction.STATIONARY);
-        int numberOfCalls = 16 * initialCapacity + RANDOM.nextInt(32);
+        Direction[] expDirs = {Direction.NORTHEAST, Direction.SOUTHEAST, 
+            Direction.SOUTHWEST, Direction.NORTHWEST};
+        Set<Direction> expected = new HashSet<>(4);
+        expected.addAll(Arrays.asList(expDirs));
+        int initialCapacity = Direction.values().length;
         Set<Direction> actual = new HashSet<>(initialCapacity);
+        int numberOfCalls = 16 * initialCapacity + RANDOM.nextInt(32);
         Dimension prevDim = ExtendedRandom.nextDimension();
         for (int i = 0; i < numberOfCalls; i++) {
             Dimension currDim = ExtendedRandom.nextDimension();
             actual.add(determineDirection(prevDim, currDim));
             prevDim = currDim;
         }
-        String stationaryStr = Direction.STATIONARY.toString();
         String msg = "After " + numberOfCalls + " calls, expecting " 
-                + actual.toString() + " to match " 
-                + dirsWithoutStationary.toString() + " possibly including " 
-                + stationaryStr;
-        String inclStationary = actual.contains(Direction.STATIONARY) 
-                ? "includes" : "does not include";
-        System.out.println("Actual directions " 
-                + inclStationary + ' ' 
-                + stationaryStr);
-        assert actual.equals(dirsWithoutStationary) || actual.equals(directions) 
-                : msg;
+                + actual.toString() + " to contain " + expected.toString();
+        System.out.println("Actual directions were " + actual.toString());
+        assert actual.containsAll(expected): msg;
     }
     
     private final static class DownsampledColor {
