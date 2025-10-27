@@ -48,10 +48,11 @@ public class ExtendedRandom {
         return new Point();
     }
     
-    // TODO: Write tests for this
     public static Dimension nextDimension() {
         counter++;
-        return new Dimension(2 * counter + 1, counter);
+        int height = RANDOM.nextInt(1, 4096);
+        int width = RANDOM.nextInt(1, 4096);
+        return new Dimension(width, height);
     }
     
     // TODO: Write tests for this
