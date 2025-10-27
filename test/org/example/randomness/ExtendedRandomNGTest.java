@@ -171,26 +171,17 @@ public class ExtendedRandomNGTest {
         int x = Integer.signum(a.height - b.height) << 2;
         int y = Integer.signum(a.width - b.width);
         int dir = x + y;
-        switch (dir) {
-            case -5:
-                return Direction.NORTHWEST;
-            case -4:
-                return Direction.NORTH;
-            case -3:
-                return Direction.NORTHEAST;
-            case -1:
-                return Direction.WEST;
-            case 1:
-                return Direction.EAST;
-            case 3:
-                return Direction.SOUTHWEST;
-            case 4:
-                return Direction.SOUTH;
-            case 5:
-                return Direction.SOUTHEAST;
-            default:
-                return Direction.STATIONARY;
-        }
+        return switch (dir) {
+            case -5 -> Direction.NORTHWEST;
+            case -4 -> Direction.NORTH;
+            case -3 -> Direction.NORTHEAST;
+            case -1 -> Direction.WEST;
+            case 1 -> Direction.EAST;
+            case 3 -> Direction.SOUTHWEST;
+            case 4 -> Direction.SOUTH;
+            case 5 -> Direction.SOUTHEAST;
+            default -> Direction.STATIONARY;
+        };
     }
     
     private final static class DownsampledColor {
