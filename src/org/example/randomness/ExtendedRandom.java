@@ -29,8 +29,6 @@ public class ExtendedRandom {
     
     private static final Random RANDOM = new Random();
     
-    private static int counter = 0;
-    
     public static int nextInt() {
         return RANDOM.nextInt();
     }
@@ -49,7 +47,6 @@ public class ExtendedRandom {
     }
     
     public static Dimension nextDimension() {
-        counter++;
         int height = RANDOM.nextInt(1, 4096);
         int width = RANDOM.nextInt(1, 4096);
         return new Dimension(width, height);
