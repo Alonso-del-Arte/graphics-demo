@@ -37,6 +37,11 @@ public class ExtendedRandom {
         return RANDOM.nextInt(bound);
     }
     
+    // TODO: Write tests for this
+    public static int nextPowerOfTwo() {
+        return -1;
+    }
+    
     public static Color nextColor() {
         return new Color(nextInt(), true);
     }
