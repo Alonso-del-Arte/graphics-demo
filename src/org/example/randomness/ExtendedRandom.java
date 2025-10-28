@@ -29,6 +29,8 @@ public class ExtendedRandom {
     
     private static final Random RANDOM = new Random();
     
+    private static int currPowerOfTwo = 1;
+    
     public static int nextInt() {
         return RANDOM.nextInt();
     }
@@ -39,7 +41,11 @@ public class ExtendedRandom {
     
     // TODO: Write tests for this
     public static int nextPowerOfTwo() {
-        return -1;
+        currPowerOfTwo <<= 1;
+        if (currPowerOfTwo == Integer.MIN_VALUE) {
+            currPowerOfTwo = 1;
+        }
+        return currPowerOfTwo;
     }
     
     public static Color nextColor() {
