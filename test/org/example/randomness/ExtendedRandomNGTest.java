@@ -86,6 +86,22 @@ public class ExtendedRandomNGTest {
         System.out.println(msg);
         assertMinimum(minimum, actual, msg);
     }
+    
+    @Test
+    public void testNextPowerOfTwo() {
+        System.out.println("nextPowerOfTwo");
+        int initialCapacity = 31;
+        Set<Integer> expected = new HashSet<>(initialCapacity);
+        for (int i = 1; i > 0; i <<= 1) {
+            expected.add(i);
+        }
+        Set<Integer> actual = new HashSet<>(initialCapacity);
+        int numberOfCalls = initialCapacity * initialCapacity;
+        for (int i = 0; i < numberOfCalls; i++) {
+            actual.add(ExtendedRandom.nextPowerOfTwo());
+        }
+        assertEquals(actual, expected);
+    }
 
     /**
      * Test of the nextColor function, of the ExtendedRandom class.
