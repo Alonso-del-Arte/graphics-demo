@@ -102,6 +102,21 @@ public class ExtendedRandomNGTest {
         }
         assertEquals(actual, expected);
     }
+    
+    @Test
+    public void testNextPowerOfTwoRandomDistribution() {
+        Set<Integer> expected = Set.of(-1, 0, 1);
+        Set<Integer> actual = new HashSet<>(3);
+        int prevPowerOfTwo = ExtendedRandom.nextPowerOfTwo();
+        for (int i = 0; i < 1024; i++) {
+            int currPowerOfTwo = ExtendedRandom.nextPowerOfTwo();
+            actual.add(Integer.signum(Integer
+                    .compare(prevPowerOfTwo, currPowerOfTwo)));
+            prevPowerOfTwo = currPowerOfTwo;
+        }
+        String message = "Assessing distribution of nextPowerOfTwo() returns";
+        assertEquals(actual, expected, message);
+    }
 
     /**
      * Test of the nextColor function, of the ExtendedRandom class.
