@@ -22,7 +22,8 @@ import java.awt.Point;
 import java.util.Random;
 
 /**
- *
+ * Provides some pseudorandom items, as well as pseudorandom 32-bit integers. 
+ * All of these functions are static, so it's not necessary to
  * @author Alonso del Arte
  */
 public class ExtendedRandom {
