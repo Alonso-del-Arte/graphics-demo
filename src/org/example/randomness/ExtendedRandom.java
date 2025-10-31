@@ -31,8 +31,6 @@ public class ExtendedRandom {
     
     private static final Random RANDOM = new Random();
     
-    private static int counter = 0;
-    
     public static int nextInt() {
         return RANDOM.nextInt();
     }
@@ -63,9 +61,9 @@ public class ExtendedRandom {
     
     // TODO: Write tests for this
     public static Dimension nextDimension(Dimension bound) {
-        counter++;
-        return new Dimension(bound.width + counter, bound.height 
-                + RANDOM.nextInt(1, 4096));
+        int height = RANDOM.nextInt(1, 4096) + bound.height;
+        int width = RANDOM.nextInt(1, 4096) + bound.width;
+        return new Dimension(width, height);
     }
     
 }
