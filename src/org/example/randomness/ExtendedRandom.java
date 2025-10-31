@@ -23,7 +23,8 @@ import java.util.Random;
 
 /**
  * Provides some pseudorandom items, as well as pseudorandom 32-bit integers. 
- * All of these functions are static, so it's not necessary to
+ * All of these functions are static, so it's not necessary to instantiate this 
+ * class like with {@code java.util.Random}.
  * @author Alonso del Arte
  */
 public class ExtendedRandom {
@@ -60,7 +61,7 @@ public class ExtendedRandom {
     
     // TODO: Write tests for this
     public static Dimension nextDimension(Dimension bound) {
-        return new Dimension(bound.width + 1, bound.height + 1);
+        return new Dimension(-bound.width - 1, -bound.height - 1);
     }
     
 }
