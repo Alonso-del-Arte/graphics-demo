@@ -258,6 +258,23 @@ public class ExtendedRandomNGTest {
         assertPositive(dimension.width, msg);
     }
     
+    @Test
+    public void testBoundedNextDimension() {
+        int initialCapacity = RANDOM.nextInt(32) + 128;
+        Set<Dimension> dimensions = new HashSet<>(initialCapacity);
+        int numberOfCalls = initialCapacity * 2;
+        Dimension bound = makeDimension();
+        for (int i = 0; i < numberOfCalls; i++) {
+            dimensions.add(ExtendedRandom.nextDimension(bound));
+        }
+        int minimum = 3 * numberOfCalls / 5;
+        int actual = dimensions.size();
+        String msg = "After " + numberOfCalls 
+                + " calls, there should be at least " + minimum 
+                + " distinct dimensions";
+        assertMinimum(minimum, actual, msg);
+    }
+    
     private final static class DownsampledColor {
         
         private final byte value;
