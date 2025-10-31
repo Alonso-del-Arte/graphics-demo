@@ -61,7 +61,7 @@ public class ExtendedRandom {
     
     // TODO: Write tests for this
     public static Dimension nextDimension(Dimension bound) {
-        return new Dimension(-bound.width - 1, -bound.height - 1);
+        return new Dimension(bound.width + 1, bound.height + 1);
     }
     
 }
