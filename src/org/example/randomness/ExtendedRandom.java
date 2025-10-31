@@ -59,10 +59,9 @@ public class ExtendedRandom {
         return new Dimension(width, height);
     }
     
-    // TODO: Write tests for this
     public static Dimension nextDimension(Dimension bound) {
-        int height = RANDOM.nextInt(1, 4096) + bound.height;
-        int width = RANDOM.nextInt(1, 4096) + bound.width;
+        int height = RANDOM.nextInt(1, bound.height);
+        int width = RANDOM.nextInt(1, bound.width);
         return new Dimension(width, height);
     }
     
