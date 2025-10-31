@@ -297,6 +297,27 @@ public class ExtendedRandomNGTest {
         assertMinimum(minimum, actualHeights, msg);
     }
     
+    @Test
+    public void testBoundedNextDimensionVariesDirectionOfBottomRightCorner() {
+        Direction[] expDirs = {Direction.NORTHEAST, Direction.SOUTHEAST, 
+            Direction.SOUTHWEST, Direction.NORTHWEST};
+        Set<Direction> expected = new HashSet<>(4);
+        expected.addAll(Arrays.asList(expDirs));
+        int initialCapacity = Direction.values().length;
+        Set<Direction> actual = new HashSet<>(initialCapacity);
+        int numberOfCalls = 16 * initialCapacity + RANDOM.nextInt(32);
+        Dimension prevDim = ExtendedRandom.nextDimension();
+        Dimension bound = makeDimension();
+        for (int i = 0; i < numberOfCalls; i++) {
+            Dimension currDim = ExtendedRandom.nextDimension(bound);
+            actual.add(determineDirection(prevDim, currDim));
+            prevDim = currDim;
+        }
+        String msg = "After " + numberOfCalls + " calls, expecting " 
+                + actual.toString() + " to contain " + expected.toString();
+        System.out.println("Actual directions were " + actual.toString());
+        assert actual.containsAll(expected): msg;
+    }
     private final static class DownsampledColor {
         
         private final byte value;
