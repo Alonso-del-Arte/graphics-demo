@@ -25,6 +25,7 @@ import java.util.Random;
 import java.util.Set;
 
 import static org.testframe.api.Asserters.assertInRange;
+import static org.testframe.api.Asserters.assertMaximum;
 import static org.testframe.api.Asserters.assertMinimum;
 import static org.testframe.api.Asserters.assertPositive;
 
@@ -318,6 +319,20 @@ public class ExtendedRandomNGTest {
         System.out.println("Actual directions were " + actual.toString());
         assert actual.containsAll(expected): msg;
     }
+    
+    @Test
+    public void testBoundedNextDimensionIsWithinBounds() {
+        Dimension bound = makeDimension();
+        String msgPart = " to be bounded by " + bound.toString();
+        int numberOfCalls = 128 + RANDOM.nextInt(32);
+        for (int i = 0; i < numberOfCalls; i++) {
+            Dimension actual = ExtendedRandom.nextDimension(bound);
+            String msg = "Expecting " + actual.toString() + msgPart;
+            assertMaximum(actual.height, bound.height, msg);
+            assertMaximum(actual.width, bound.width, msg);
+        }
+    }
+    
     private final static class DownsampledColor {
         
         private final byte value;
