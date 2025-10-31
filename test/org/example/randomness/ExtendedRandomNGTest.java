@@ -46,6 +46,10 @@ public class ExtendedRandomNGTest {
     
     private static final Random RANDOM = new Random(System.currentTimeMillis());
     
+    private static final int MIN_WIDTH_OR_HEIGHT = 720;
+    
+    private static final int USUAL_BOUND = 1200;
+    
     /**
      * Test of the nextInt function, of the ExtendedRandom class.
      */
@@ -236,6 +240,22 @@ public class ExtendedRandomNGTest {
                 + actual.toString() + " to contain " + expected.toString();
         System.out.println("Actual directions were " + actual.toString());
         assert actual.containsAll(expected): msg;
+    }
+    
+    private static Dimension makeDimension() {
+        int width = MIN_WIDTH_OR_HEIGHT + RANDOM.nextInt(USUAL_BOUND);
+        int height = MIN_WIDTH_OR_HEIGHT + RANDOM.nextInt(USUAL_BOUND);
+        return new Dimension(width, height);
+    }
+    
+    @Test
+    public void testBoundedNextDimensionIsPositive() {
+        Dimension bound = makeDimension();
+        Dimension dimension = ExtendedRandom.nextDimension(bound);
+        String msg = "Dimension " + dimension.toString() 
+                + " should have positive height and width";
+        assertPositive(dimension.height, msg);
+        assertPositive(dimension.width, msg);
     }
     
     private final static class DownsampledColor {
