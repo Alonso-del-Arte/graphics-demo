@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Alonso del Arte
+ * Copyright (C) 2026 Alonso del Arte
  *
  * This program is free software: you can redistribute it and/or modify it under 
  * the terms of the GNU General Public License as published by the Free Software 
@@ -110,7 +110,10 @@ public class ExtendedRandomNGTest {
     
     @Test
     public void testNextPowerOfTwoRandomDistribution() {
-        Set<Integer> expected = Set.of(-1, 0, 1);
+        Set<Integer> expected = new HashSet<>(3); // Set.of(-1, 0, 1);
+        expected.add(-1);
+        expected.add(0);
+        expected.add(1);
         Set<Integer> actual = new HashSet<>(3);
         int prevPowerOfTwo = ExtendedRandom.nextPowerOfTwo();
         for (int i = 0; i < 1024; i++) {
@@ -209,17 +212,26 @@ public class ExtendedRandomNGTest {
         int x = Integer.signum(prevDim.height - currDim.height) << 2;
         int y = Integer.signum(prevDim.width - currDim.width);
         int dir = x + y;
-        return switch (dir) {
-            case -5 -> Direction.NORTHWEST;
-            case -4 -> Direction.NORTH;
-            case -3 -> Direction.NORTHEAST;
-            case -1 -> Direction.WEST;
-            case 1 -> Direction.EAST;
-            case 3 -> Direction.SOUTHWEST;
-            case 4 -> Direction.SOUTH;
-            case 5 -> Direction.SOUTHEAST;
-            default -> Direction.STATIONARY;
-        };
+        switch (dir) {
+            case -5:
+                return Direction.NORTHWEST;
+            case -4:
+                return Direction.NORTH;
+            case -3:
+                return Direction.NORTHEAST;
+            case -1:
+                return Direction.WEST;
+            case 1:
+                return Direction.EAST;
+            case 3:
+                return Direction.SOUTHWEST;
+            case 4:
+                return Direction.SOUTH;
+            case 5:
+                return Direction.SOUTHEAST;
+            default:
+                return Direction.STATIONARY;
+        }
     }
     
     @Test
@@ -341,8 +353,8 @@ public class ExtendedRandomNGTest {
         public boolean equals(Object obj) {
             if (this == obj) return true;
             if (obj == null) return false;
-            if (obj instanceof DownsampledColor other) {
-                return this.value == other.value;
+            if (obj instanceof DownsampledColor) {
+                return this.value == ((DownsampledColor) obj).value;
             } else return false;
         }
         

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Alonso del Arte
+ * Copyright (C) 2026 Alonso del Arte
  *
  * This program is free software: you can redistribute it and/or modify it under 
  * the terms of the GNU General Public License as published by the Free Software 
@@ -54,14 +54,14 @@ public class ExtendedRandom {
     }
     
     public static Dimension nextDimension() {
-        int height = RANDOM.nextInt(1, 4096);
-        int width = RANDOM.nextInt(1, 4096);
+        int height = RANDOM.nextInt(4096) + 1;
+        int width = RANDOM.nextInt(4096) + 1;
         return new Dimension(width, height);
     }
     
     public static Dimension nextDimension(Dimension bound) {
-        int height = RANDOM.nextInt(1, bound.height);
-        int width = RANDOM.nextInt(1, bound.width);
+        int height = RANDOM.nextInt(bound.height) + 1;
+        int width = RANDOM.nextInt(bound.width) + 1;
         return new Dimension(width, height);
     }
     
