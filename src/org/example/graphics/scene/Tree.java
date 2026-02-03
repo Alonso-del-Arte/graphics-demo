@@ -38,6 +38,10 @@ public class Tree {
         return new Dimension(1, 1);
     }
     
+    void paint(Graphics g) {
+        //
+    }
+    
     public Tree(Color leafColor, Dimension size) {
         this.upperColor = leafColor;
     }
