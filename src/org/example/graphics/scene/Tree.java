@@ -60,9 +60,7 @@ public class Tree {
     }
     
     public Tree(Color leafColor, Dimension size) {
-        this.upperColor = leafColor;
-        this.dimension = size;
-        this.position = DEFAULT_POSITION;
+        this(leafColor, size, DEFAULT_POSITION);
     }
     
     public Tree(Color leafColor, Dimension size, Point originalPosition) {
