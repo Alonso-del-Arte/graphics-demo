@@ -31,14 +31,20 @@ public class TreePanel extends JPanel {
     
     private byte numberOfTrees;
     
-    private java.util.List<Tree> listOfTrees;
+    private final java.util.List<Tree> listOfTrees;
     
     void addTree() {
-        //
+        this.listOfTrees.add(new Tree(Color.GREEN, new Dimension( 50, 100)));
     }
     
     void changeNumberOfTrees(byte treeCount) {
         this.numberOfTrees = treeCount;
+        while (this.listOfTrees.size() > treeCount) {
+            this.listOfTrees.remove(0);
+        }
+        while (this.listOfTrees.size() < treeCount) {
+            this.addTree();
+        }
     }
     
     @Override
