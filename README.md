@@ -1,5 +1,9 @@
 # Graphics Demo
 
+You're looking at the quick and dirty branch. Since I won't be using my normal 
+test-driven development process on this branch, I make no guarantees as to the 
+correctness or elegance of this version of the program.
+
 WORK IN PROGRESS
 
 For a Medium article to demonstrate the basics of GUI programming from the Java 
