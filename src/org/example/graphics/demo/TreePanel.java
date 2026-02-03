@@ -17,6 +17,7 @@
 package org.example.graphics.demo;
 
 import java.awt.*;
+import java.util.*;
 
 import javax.swing.*;
 
@@ -30,6 +31,12 @@ public class TreePanel extends JPanel {
     
     private byte numberOfTrees;
     
+    private java.util.List<Tree> listOfTrees;
+    
+    void addTree() {
+        //
+    }
+    
     void changeNumberOfTrees(byte treeCount) {
         this.numberOfTrees = treeCount;
     }
@@ -41,6 +48,7 @@ public class TreePanel extends JPanel {
 
     public TreePanel(byte initialNumberOfTrees) {
         this.numberOfTrees = initialNumberOfTrees;
+        this.listOfTrees = new ArrayList<>(this.numberOfTrees);
     }
     
 }
