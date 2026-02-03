@@ -30,6 +30,10 @@ public class TreePanel extends JPanel {
     
     private byte numberOfTrees;
     
+    void changeNumberOfTrees(byte treeCount) {
+        this.numberOfTrees = treeCount;
+    }
+    
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
