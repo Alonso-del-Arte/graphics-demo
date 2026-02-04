@@ -28,7 +28,7 @@ import javax.swing.WindowConstants;
 public final class GraphicsDemo extends JFrame {
 
     // TODO: Write a test for this
-    public static final byte DEFAULT_NUMBER_OF_TREES = -1;
+    public static final byte DEFAULT_NUMBER_OF_TREES = 31;
     
     public GraphicsDemo() {
         this(DEFAULT_NUMBER_OF_TREES);
