@@ -57,7 +57,7 @@ public class Tree {
         this.position = relocated;
     }
     
-    void paint(Graphics g) {
+    public void paint(Graphics g) {
         g.setColor(this.upperColor);
         int vertexX = this.position.x + this.dimension.width / 2;
         int[] xPoints = {vertexX, this.position.x, this.position.x 
