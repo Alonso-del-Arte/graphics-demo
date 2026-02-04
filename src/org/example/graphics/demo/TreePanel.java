@@ -40,7 +40,7 @@ public class TreePanel extends JPanel {
         //
     }
     
-    void changeNumberOfTrees(byte treeCount) {
+    void setNumberOfTrees(byte treeCount) {
         // TODO: Write tests for this
     }
 

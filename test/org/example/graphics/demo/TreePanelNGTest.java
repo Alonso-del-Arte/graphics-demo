@@ -31,8 +31,8 @@ public class TreePanelNGTest {
      * Test of changeNumberOfTrees method, of class TreePanel.
      */
     @Test
-    public void testChangeNumberOfTrees() {
-        System.out.println("changeNumberOfTrees");
+    public void testSetNumberOfTrees() {
+        System.out.println("setNumberOfTrees");
         byte treeCount = 0;
         TreePanel instance = null;
 //        instance.changeNumberOfTrees(treeCount);
