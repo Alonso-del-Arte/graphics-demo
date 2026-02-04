@@ -40,9 +40,8 @@ public class TreePanel extends JPanel {
         //
     }
     
-    // TODO: Write tests for this
     byte getNumberOfTrees() {
-        return -1;
+        return this.numberOfTrees;
     }
     
     void setNumberOfTrees(byte treeCount) {
