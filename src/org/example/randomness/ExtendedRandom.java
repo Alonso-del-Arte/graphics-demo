@@ -39,6 +39,10 @@ public class ExtendedRandom {
         return RANDOM.nextInt(bound);
     }
     
+    public static int nextInt(int origin, int bound) {
+        return 0;
+    }
+    
     public static int nextPowerOfTwo() {
         int shift = nextInt(31);
         return 1 << shift;
