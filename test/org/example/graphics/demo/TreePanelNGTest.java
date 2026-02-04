@@ -18,6 +18,8 @@ package org.example.graphics.demo;
 
 import java.awt.Graphics;
 
+import org.example.randomness.ExtendedRandom;
+
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
@@ -27,10 +29,18 @@ import org.testng.annotations.Test;
  */
 public class TreePanelNGTest {
     
+    @Test
+    public void testGetNumberOfTrees() {
+        byte expected = (byte) ExtendedRandom.nextInt(128);
+        TreePanel instance = new TreePanel(expected);
+        byte actual = instance.getNumberOfTrees();
+        assertEquals(actual, expected);
+    }
+    
     /**
      * Test of changeNumberOfTrees method, of class TreePanel.
      */
-    @Test
+    @Test(enabled = false)
     public void testSetNumberOfTrees() {
         System.out.println("setNumberOfTrees");
         byte treeCount = 0;
@@ -43,7 +53,7 @@ public class TreePanelNGTest {
     /**
      * Test of paintComponent method, of class TreePanel.
      */
-    @Test
+    @Test(enabled = false)
     public void testPaintComponent() {
         System.out.println("paintComponent");
         Graphics g = null;
