@@ -50,6 +50,9 @@ public class TreePanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        for (Tree tree : this.listOfTrees) {
+            tree.paint(g);
+        }
     }
 
     public TreePanel(byte initialNumberOfTrees) {
