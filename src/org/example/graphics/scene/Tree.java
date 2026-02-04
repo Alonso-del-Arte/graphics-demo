@@ -35,6 +35,8 @@ public class Tree {
     
     private Point position;
     
+    private final int lowLeafLevel;
+    
     public Color getLeafColor() {
         return this.upperColor;
     }
@@ -56,7 +58,13 @@ public class Tree {
     }
     
     void paint(Graphics g) {
-        //
+        g.setColor(this.upperColor);
+        int vertexX = this.position.x + this.dimension.width / 2;
+        int[] xPoints = {vertexX, this.position.x, this.position.x 
+                + this.dimension.width};
+        int lowCornerY = this.position.y + this.lowLeafLevel;
+        int[] yPoints = {this.position.y, lowCornerY, lowCornerY};
+        g.drawPolygon(xPoints, yPoints, 3);
     }
     
     public Tree(Color leafColor, Dimension size) {
@@ -67,6 +75,7 @@ public class Tree {
         this.upperColor = leafColor;
         this.dimension = size;
         this.position = originalPosition;
+        this.lowLeafLevel = 3 * this.dimension.height / 4;
     }
     
 }
