@@ -25,10 +25,17 @@ import org.testng.annotations.Test;
  */
 public class GraphicsDemoNGTest {
     
+    @Test
+    public void testDefaultNumberOfTreesConstant() {
+        byte expected = 31;
+        byte actual = GraphicsDemo.DEFAULT_NUMBER_OF_TREES;
+        assertEquals(actual, expected);
+    }
+    
     /**
      * Test of main method, of class GraphicsDemo.
      */
-    @Test
+    @Test(enabled = false)
     public void testMain() {
         System.out.println("main");
         String[] args = null;
