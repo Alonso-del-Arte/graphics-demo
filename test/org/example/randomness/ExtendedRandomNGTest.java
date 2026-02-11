@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Alonso del Arte
+ * Copyright (C) 2026 Alonso del Arte
  *
  * This program is free software: you can redistribute it and/or modify it under 
  * the terms of the GNU General Public License as published by the Free Software 
@@ -88,6 +88,30 @@ public class ExtendedRandomNGTest {
         String msg = "Expected at least " + minimum
                 + " distinct integers after " + numberOfCalls + " calls, got " 
                 + actual;
+        System.out.println(msg);
+        assertMinimum(minimum, actual, msg);
+    }
+    
+    @Test
+    public void testNextIntOriginBounded() {
+        int capacity = 2048;
+        int origin = RANDOM.nextInt(2, 128);
+        int bound = capacity - RANDOM.nextInt(128);
+        int maximum = bound - 1;
+        Set<Integer> numbers = new HashSet<>(capacity);
+        for (int i = 0; i < capacity; i++) {
+            int number = ExtendedRandom.nextInt(origin, bound);
+            String msg = "Pseudorandom number " + number
+                    + " should be at least " + origin + " but less than " 
+                    + bound;
+            assertInRange(origin, number, maximum, msg);
+            numbers.add(number);
+        }
+        int minimum = capacity / 2;
+        int actual = numbers.size();
+        String msg = "Expected at least " + minimum
+                + " distinct integers in the range 0 to " + (bound - 1)
+                + " out of " + capacity + ", got " + actual;
         System.out.println(msg);
         assertMinimum(minimum, actual, msg);
     }
