@@ -17,3 +17,6 @@ make a quick and dirty branch in which I would suspend my usual methodology to
 get this demo out quickly and not hold up the Medium article much longer. But 
 I'm finding that trying to do this quick and dirty is actually kind of slow for 
 me.
+
+Also, and this is kind of arbitrary, I downgraded the quick and dirty branch to 
+Java 8.
