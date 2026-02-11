@@ -57,6 +57,11 @@ public class ExtendedRandom {
         return new Point();
     }
     
+    // TODO: Write tests for this
+    public static Point nextPoint(Dimension bound) {
+        return new Point(bound.width + 1, bound.height + 1);
+    }
+    
     public static Dimension nextDimension() {
         int height = RANDOM.nextInt(1, 4096);
         int width = RANDOM.nextInt(1, 4096);
