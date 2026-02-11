@@ -169,16 +169,22 @@ public class ExtendedRandomNGTest {
     }
 
     /**
-     * Test of nextPoint method, of class ExtendedRandom.
+     * Test of the nextPoint function, of the ExtendedRandom class.
      */
-//    @Test
+    @Test
     public void testNextPoint() {
         System.out.println("nextPoint");
-        Point expResult = null;
-        Point result = ExtendedRandom.nextPoint();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int initialCapacity = RANDOM.nextInt(128, 256);
+        Set<Point> points = new HashSet<>(initialCapacity);
+        for (int i = 0; i < initialCapacity; i++) {
+            points.add(ExtendedRandom.nextPoint());
+        }
+        int minimum = 3 * initialCapacity / 5;
+        int actual = points.size();
+        String msg = "After " + initialCapacity + " calls, expected at least " 
+                + minimum + " distinct points, got " + actual;
+        assertMinimum(minimum, actual, msg);
+        System.out.println(msg);
     }
     
     @Test
