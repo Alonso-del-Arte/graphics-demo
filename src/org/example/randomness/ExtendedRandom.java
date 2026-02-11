@@ -39,9 +39,8 @@ public class ExtendedRandom {
         return RANDOM.nextInt(bound);
     }
     
-    // TODO: Write tests for this
     public static int nextInt(int origin, int bound) {
-        return -1;
+        return RANDOM.nextInt(origin, bound);
     }
     
     public static int nextPowerOfTwo() {
