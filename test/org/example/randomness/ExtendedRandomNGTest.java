@@ -27,6 +27,7 @@ import java.util.Set;
 import static org.testframe.api.Asserters.assertInRange;
 import static org.testframe.api.Asserters.assertMaximum;
 import static org.testframe.api.Asserters.assertMinimum;
+import static org.testframe.api.Asserters.assertNotNegative;
 import static org.testframe.api.Asserters.assertPositive;
 
 import static org.testng.Assert.*;
@@ -178,6 +179,31 @@ public class ExtendedRandomNGTest {
         Set<Point> points = new HashSet<>(initialCapacity);
         for (int i = 0; i < initialCapacity; i++) {
             points.add(ExtendedRandom.nextPoint());
+        }
+        int minimum = 3 * initialCapacity / 5;
+        int actual = points.size();
+        String msg = "After " + initialCapacity + " calls, expected at least " 
+                + minimum + " distinct points, got " + actual;
+        assertMinimum(minimum, actual, msg);
+        System.out.println(msg);
+    }
+    
+    @Test
+    public void testNextPointBounded() {
+        int height = RANDOM.nextInt(8) + 32;
+        int width = RANDOM.nextInt(8) + 32;
+        Dimension bound = new Dimension(width, height);
+        int initialCapacity = height * width;
+        Set<Point> points = new HashSet<>(initialCapacity);
+        for (int i = 0; i < initialCapacity; i++) {
+            Point point = ExtendedRandom.nextPoint(bound);
+            String msg = point.toString() + " should be within " 
+                    + bound.toString();
+            assertNotNegative(point.x, msg);
+            assertNotNegative(point.y, msg);
+            assertMaximum(point.x, bound.width, msg);
+            assertMaximum(point.y, bound.height, msg);
+            points.add(point);
         }
         int minimum = 3 * initialCapacity / 5;
         int actual = points.size();
