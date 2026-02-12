@@ -56,9 +56,9 @@ public class ExtendedRandom {
         return new Point(RANDOM.nextInt(), RANDOM.nextInt());
     }
     
-    // TODO: Write tests for this
     public static Point nextPoint(Dimension bound) {
-        return new Point(bound.width + 1, bound.height + 1);
+        return new Point(RANDOM.nextInt(bound.width), 
+                RANDOM.nextInt(bound.height));
     }
     
     public static Dimension nextDimension() {
