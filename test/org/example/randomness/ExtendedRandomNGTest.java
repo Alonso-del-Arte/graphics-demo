@@ -208,7 +208,7 @@ public class ExtendedRandomNGTest {
         int minimum = 3 * initialCapacity / 5;
         int actual = points.size();
         String msg = "After " + initialCapacity + " calls, expected at least " 
-                + minimum + " distinct points, got " + actual;
+                + minimum + " distinct bounded points, got " + actual;
         assertMinimum(minimum, actual, msg);
         System.out.println(msg);
     }
