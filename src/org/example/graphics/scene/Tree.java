@@ -44,4 +44,10 @@ public class Tree {
         this.lowerColor = Color.BLACK;
     }
     
+    // TODO: Write tests for this
+    public Tree(Color leafColor, Color trunkColor, Dimension size) {
+        this.upperColor = leafColor;
+        this.lowerColor = trunkColor;
+    }
+    
 }
