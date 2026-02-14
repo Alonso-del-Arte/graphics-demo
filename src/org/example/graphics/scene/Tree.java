@@ -34,6 +34,11 @@ public class Tree {
     }
     
     // TODO: Write tests for this
+    public Color getTrunkColor() {
+        return this.lowerColor;
+    }
+    
+    // TODO: Write tests for this
     public Dimension getDimension() {
         return new Dimension(1, 1);
     }
@@ -46,8 +51,8 @@ public class Tree {
     
     // TODO: Write tests for this
     public Tree(Color leafColor, Color trunkColor, Dimension size) {
-        this.upperColor = leafColor;
-        this.lowerColor = trunkColor;
+        this.upperColor = Color.BLUE;
+        this.lowerColor = Color.DARK_GRAY;
     }
     
 }
