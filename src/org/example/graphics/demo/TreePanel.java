@@ -27,14 +27,14 @@ import org.example.graphics.scene.*;
  *
  * @author Alonso del Arte
  */
-public class TreePanel extends JPanel {
+public final class TreePanel extends JPanel {
     
     private byte numberOfTrees;
     
     private final java.util.List<Tree> listOfTrees;
     
     void addTree() {
-        this.listOfTrees.add(new Tree(Color.GREEN, new Dimension( 50, 100)));
+        this.listOfTrees.add(new Tree(Color.GREEN, new Dimension(50, 100)));
     }
     
     void changeNumberOfTrees(byte treeCount) {
@@ -58,6 +58,11 @@ public class TreePanel extends JPanel {
     public TreePanel(byte initialNumberOfTrees) {
         this.numberOfTrees = initialNumberOfTrees;
         this.listOfTrees = new ArrayList<>(this.numberOfTrees);
+        while (this.listOfTrees.size() < this.numberOfTrees) {
+            this.addTree();
+        }
+        Dimension preferredSize = new Dimension(500, 200);
+        this.setPreferredSize(preferredSize);
     }
     
 }
