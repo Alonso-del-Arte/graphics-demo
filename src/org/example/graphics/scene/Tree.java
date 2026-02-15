@@ -64,13 +64,14 @@ public class Tree {
                 + this.dimension.width};
         int lowCornerY = this.position.y + this.lowLeafLevel;
         int[] yPoints = {this.position.y, lowCornerY, lowCornerY};
-        g.drawPolygon(xPoints, yPoints, 3);
+        g.fillPolygon(xPoints, yPoints, 3);
         // Draw the trunk
         int width = this.dimension.width / 3;
         int halfWidth = width / 2;
         int leftCornerX = vertexX - halfWidth;
         int rightCornerX = vertexX + halfWidth;
-        g.drawRect(leftCornerX, this.lowLeafLevel, width, this.dimension.height 
+        g.setColor(new Color(128, 64, 0));
+        g.fillRect(leftCornerX, this.lowLeafLevel, width, this.dimension.height 
                 - this.lowLeafLevel);
     }
     
