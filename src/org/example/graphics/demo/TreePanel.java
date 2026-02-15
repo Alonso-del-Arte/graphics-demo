@@ -17,6 +17,7 @@
 package org.example.graphics.demo;
 
 import java.awt.*;
+import java.awt.event.*;
 import java.util.*;
 
 import javax.swing.*;
@@ -27,7 +28,7 @@ import org.example.graphics.scene.*;
  *
  * @author Alonso del Arte
  */
-public final class TreePanel extends JPanel {
+public final class TreePanel extends JPanel implements MouseMotionListener {
     
     private byte numberOfTrees;
     
@@ -53,6 +54,16 @@ public final class TreePanel extends JPanel {
         this.listOfTrees.forEach((tree) -> {
             tree.paint(g);
         });
+    }
+    
+    @Override
+    public void mouseMoved(MouseEvent event) {
+        //
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent event) {
+        //
     }
 
     public TreePanel(byte initialNumberOfTrees) {
