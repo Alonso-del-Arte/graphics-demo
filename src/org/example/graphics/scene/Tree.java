@@ -65,6 +65,13 @@ public class Tree {
         int lowCornerY = this.position.y + this.lowLeafLevel;
         int[] yPoints = {this.position.y, lowCornerY, lowCornerY};
         g.drawPolygon(xPoints, yPoints, 3);
+        // Draw the trunk
+        int width = this.dimension.width / 3;
+        int halfWidth = width / 2;
+        int leftCornerX = vertexX - halfWidth;
+        int rightCornerX = vertexX + halfWidth;
+        g.drawRect(leftCornerX, this.lowLeafLevel, width, this.dimension.height 
+                - this.lowLeafLevel);
     }
     
     public Tree(Color leafColor, Dimension size) {
