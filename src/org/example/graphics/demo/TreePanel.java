@@ -33,6 +33,12 @@ public final class TreePanel extends JPanel implements MouseListener,
     
     private byte numberOfTrees;
     
+    private boolean hasTreeSelected = false;
+    
+    private Point lastRecordedMousePosition = new Point(-1, -1);
+    
+    private Tree selectedTree = null;
+    
     private final java.util.List<Tree> listOfTrees;
     
     void addTree() {
@@ -59,7 +65,10 @@ public final class TreePanel extends JPanel implements MouseListener,
     
     @Override
     public void mouseClicked(MouseEvent event) {
-        //
+        int x = event.getX();
+        int y = event.getY();
+        Point point = new Point(x, y);
+        this.lastRecordedMousePosition = point;
     }
 
     @Override
@@ -79,7 +88,8 @@ public final class TreePanel extends JPanel implements MouseListener,
 
     @Override
     public void mouseReleased(MouseEvent event) {
-        //
+        this.hasTreeSelected = false;
+        this.selectedTree = null;
     }
 
     @Override
@@ -89,7 +99,9 @@ public final class TreePanel extends JPanel implements MouseListener,
 
     @Override
     public void mouseDragged(MouseEvent event) {
-        //
+        if (this.hasTreeSelected) {
+            //
+        }
     }
 
     public TreePanel(byte initialNumberOfTrees) {
@@ -100,6 +112,8 @@ public final class TreePanel extends JPanel implements MouseListener,
         }
         Dimension preferredSize = new Dimension(500, 200);
         this.setPreferredSize(preferredSize);
+        this.addMouseListener(this);
+        this.addMouseMotionListener(this);
     }
     
 }
