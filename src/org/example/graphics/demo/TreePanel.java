@@ -111,8 +111,10 @@ public final class TreePanel extends JPanel implements MouseListener,
     @Override
     public void mouseDragged(MouseEvent event) {
         if (this.hasTreeSelected) {
+            Point mousePos = new Point(event.getX(), event.getY());
             Point treePos = this.selectedTree.getPosition();
-            Point relocated = new Point(event.getX(), event.getY());
+            Point relocated = new Point(event.getX() + this.offset.x, 
+                    event.getY() + this.offset.y);
             this.lastRecordedMousePosition = relocated;
 //            relocated.move(this.offset.x, this.offset.y);
             this.selectedTree.setPosition(relocated);
