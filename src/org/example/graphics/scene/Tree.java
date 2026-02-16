@@ -28,10 +28,10 @@ import java.awt.Point;
 public class Tree {
     
     // TODO: Write tests for this
-    private static final Color DEFAULT_LEAF_COLOR = Color.GRAY;
+    public static final Color DEFAULT_LEAF_COLOR = Color.GRAY;
     
     // TODO: Write tests for this
-    private static final Color DEFAULT_TRUNK_COLOR = new Color(128, 64, 128);
+    public static final Color DEFAULT_TRUNK_COLOR = new Color(128, 64, 128);
     
     private static final Point DEFAULT_POSITION = new Point(0, 0);
     
