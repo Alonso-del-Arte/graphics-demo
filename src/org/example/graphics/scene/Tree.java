@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Alonso del Arte
+ * Copyright (C) 2026 Alonso del Arte
  *
  * This program is free software: you can redistribute it and/or modify it under 
  * the terms of the GNU General Public License as published by the Free Software 
@@ -79,7 +79,7 @@ public class Tree {
         int leftCornerX = vertexX - halfWidth;
         int rightCornerX = vertexX + halfWidth;
         g.setColor(new Color(128, 64, 0));
-        g.fillRect(leftCornerX, this.lowLeafLevel, width, this.dimension.height 
+        g.fillRect(leftCornerX, lowCornerY, width, this.dimension.height 
                 - this.lowLeafLevel);
     }
     
