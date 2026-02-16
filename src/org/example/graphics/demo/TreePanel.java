@@ -23,6 +23,7 @@ import java.util.*;
 import javax.swing.*;
 
 import org.example.graphics.scene.*;
+import org.example.randomness.ExtendedRandom;
 
 /**
  *
@@ -44,7 +45,8 @@ public final class TreePanel extends JPanel implements MouseListener,
     private final java.util.List<Tree> listOfTrees;
     
     void addTree() {
-        this.listOfTrees.add(new Tree(Color.GREEN, new Dimension(50, 100)));
+        this.listOfTrees.add(new Tree(Color.GREEN, new Dimension(50, 100), 
+                ExtendedRandom.nextPoint(this.getPreferredSize())));
     }
     
     void changeNumberOfTrees(byte treeCount) {
@@ -123,13 +125,13 @@ public final class TreePanel extends JPanel implements MouseListener,
     }
 
     public TreePanel(byte initialNumberOfTrees) {
+        Dimension preferredSize = new Dimension(500, 200);
+        this.setPreferredSize(preferredSize);
         this.numberOfTrees = initialNumberOfTrees;
         this.listOfTrees = new ArrayList<>(this.numberOfTrees);
         while (this.listOfTrees.size() < this.numberOfTrees) {
             this.addTree();
         }
-        Dimension preferredSize = new Dimension(500, 200);
-        this.setPreferredSize(preferredSize);
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
     }
