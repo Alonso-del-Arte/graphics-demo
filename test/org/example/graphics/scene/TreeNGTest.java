@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Alonso del Arte
+ * Copyright (C) 2026 Alonso del Arte
  *
  * This program is free software: you can redistribute it and/or modify it under 
  * the terms of the GNU General Public License as published by the Free Software 
@@ -38,6 +38,11 @@ public class TreeNGTest {
     
     private static final Dimension DEFAULT_DIMENSION 
             = new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+    
+    @Test
+    public void testDefaultLeafColorConstant() {
+        assertEquals(Tree.DEFAULT_LEAF_COLOR, Color.GREEN);
+    }
     
     @Test
     public void testGetLeafColor() {
