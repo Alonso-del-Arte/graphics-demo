@@ -27,11 +27,16 @@ import java.awt.Point;
  */
 public class Tree {
     
-    // TODO: Write tests for this
+    /**
+     * The default color for the tree leaves. This is the brightest green.
+     */
     public static final Color DEFAULT_LEAF_COLOR = Color.GREEN;
     
-    // TODO: Write tests for this
-    public static final Color DEFAULT_TRUNK_COLOR = new Color(128, 64, 128);
+    /**
+     * The default color for the tree trunk. This is a brown, 50% red, 25% green 
+     * and 0% blue.
+     */
+    public static final Color DEFAULT_TRUNK_COLOR = new Color(128, 64, 0);
     
     private static final Point DEFAULT_POSITION = new Point(0, 0);
     
