@@ -38,6 +38,8 @@ public class GraphicsDemoNGTest {
     
     }
     
+    private static final CloseOperations[] CLOSE_OPS = CloseOperations.values();
+    
     @Test
     public void testDefaultNumberOfTreesConstant() {
         byte expected = 31;
@@ -46,14 +48,23 @@ public class GraphicsDemoNGTest {
     }
     
     @Test
+    public void testDefaultCloseOperationZeroParamConstructor() {
+        JFrame instance = new GraphicsDemo();
+        int expected = WindowConstants.EXIT_ON_CLOSE;
+        int actual = instance.getDefaultCloseOperation();
+        String message = "Expected " + CLOSE_OPS[expected].toString() + ", got " 
+                + CLOSE_OPS[actual].toString();
+        assertEquals(actual, expected, message);
+    }
+    
+    @Test
     public void testDefaultCloseOperation() {
         byte initialNumberOfTrees = (byte) nextInt(1, 128);
         JFrame instance = new GraphicsDemo(initialNumberOfTrees);
         int expected = WindowConstants.EXIT_ON_CLOSE;
         int actual = instance.getDefaultCloseOperation();
-        CloseOperations[] closeOps = CloseOperations.values();
-        String message = "Expected " + closeOps[expected].toString() + ", got " 
-                + closeOps[actual].toString();
+        String message = "Expected " + CLOSE_OPS[expected].toString() + ", got " 
+                + CLOSE_OPS[actual].toString();
         assertEquals(actual, expected, message);
     }
     
