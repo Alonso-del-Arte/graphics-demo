@@ -32,7 +32,7 @@ public final class GraphicsDemo extends JFrame {
     
     // TODO: Write tests for this
     public GraphicsDemo() {
-        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     
     // TODO: Write tests for this
