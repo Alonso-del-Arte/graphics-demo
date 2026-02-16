@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Alonso del Arte
+ * Copyright (C) 2026 Alonso del Arte
  *
  * This program is free software: you can redistribute it and/or modify it under 
  * the terms of the GNU General Public License as published by the Free Software 
@@ -27,7 +27,14 @@ import java.awt.Point;
  */
 public class Tree {
     
+    // TODO: Write test that this should be (0, 0)
+    private static final Point DEFAULT_POSITION = new Point(-4, -7);
+    
     private final Color upperColor, lowerColor;
+    
+    private Point position = new Point();
+    
+    private final int lowLeafLevel;
     
     public Color getLeafColor() {
         return this.upperColor;
@@ -44,15 +51,36 @@ public class Tree {
     }
     
     // TODO: Write tests for this
+    public Point getPosition() {
+        return DEFAULT_POSITION;
+    }
+    
+    // TODO: Write tests for this
+    public void setPosition(Point relocated) {
+        this.position = DEFAULT_POSITION;
+    }
+    
+    // TODO: Write tests for this
+    public boolean contains(Point point) {
+        return false;
+    }
+
+    public void paint(Graphics g) {
+        // TODO: Write tests for this
+    }
+
+    // TODO: Write tests for this
     public Tree(Color leafColor, Dimension size) {
         this.upperColor = leafColor;
         this.lowerColor = Color.BLACK;
+        this.lowLeafLevel = -1;
     }
     
     // TODO: Write tests for this
     public Tree(Color leafColor, Color trunkColor, Dimension size) {
         this.upperColor = Color.BLUE;
         this.lowerColor = Color.DARK_GRAY;
+        this.lowLeafLevel = -2;
     }
     
 }
