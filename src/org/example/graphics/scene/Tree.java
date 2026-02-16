@@ -27,8 +27,7 @@ import java.awt.Point;
  */
 public class Tree {
     
-    // TODO: Write test that this should be (0, 0)
-    private static final Point DEFAULT_POSITION = new Point(-4, -7);
+    private static final Point DEFAULT_POSITION = new Point(0, 0);
     
     private final Color upperColor, lowerColor;
     
