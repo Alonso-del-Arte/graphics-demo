@@ -16,6 +16,13 @@
  */
 package org.example.graphics.demo;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+
+import static org.example.randomness.ExtendedRandom.nextInt;
+
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
@@ -25,11 +32,29 @@ import org.testng.annotations.Test;
  */
 public class GraphicsDemoNGTest {
     
+    private enum CloseOperations {
+        
+        DO_NOTHING_ON_CLOSE, HIDE_ON_CLOSE, DISPOSE_ON_CLOSE, EXIT_ON_CLOSE
+    
+    }
+    
     @Test
     public void testDefaultNumberOfTreesConstant() {
         byte expected = 31;
         byte actual = GraphicsDemo.DEFAULT_NUMBER_OF_TREES;
         assertEquals(actual, expected);
+    }
+    
+    @Test
+    public void testDefaultCloseOperation() {
+        byte initialNumberOfTrees = (byte) nextInt(1, 128);
+        JFrame instance = new GraphicsDemo(initialNumberOfTrees);
+        int expected = WindowConstants.EXIT_ON_CLOSE;
+        int actual = instance.getDefaultCloseOperation();
+        CloseOperations[] closeOps = CloseOperations.values();
+        String message = "Expected " + closeOps[expected].toString() + ", got " 
+                + closeOps[actual].toString();
+        assertEquals(actual, expected, message);
     }
     
     /**
