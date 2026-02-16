@@ -19,6 +19,10 @@ package org.example.graphics.demo;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,11 +34,20 @@ import org.example.graphics.scene.Tree;
  *
  * @author Alonso del Arte
  */
-public class TreePanel extends JPanel {
+public class TreePanel extends JPanel implements MouseListener, 
+        MouseMotionListener {
     
     private byte numberOfTrees;
     
-    private final List<Tree> listOfTrees;
+    private boolean hasTreeSelected = false;
+    
+    private Point lastRecordedMousePosition = new Point(-1, -1);
+    
+    private Point offset = new Point(0, 0);
+    
+    private Tree selectedTree = null;
+    
+    final List<Tree> listOfTrees;
     
     private void addTree() {
         //
@@ -46,6 +59,41 @@ public class TreePanel extends JPanel {
     
     void setNumberOfTrees(byte treeCount) {
         // TODO: Write tests for this
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent event) {
+        //
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent event) {
+        //
+    }
+
+    @Override
+    public void mouseExited(MouseEvent event) {
+        //
+    }
+
+    @Override
+    public void mousePressed(MouseEvent event) {
+        // TODO: Enable start of dragging
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent event) {
+        // TODO: Clear tree selection
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent event) {
+        //
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent event) {
+        // TODO: Reposition selected tree
     }
 
     @Override
