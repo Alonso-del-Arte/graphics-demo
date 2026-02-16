@@ -22,6 +22,7 @@ public final class GraphicsDemo extends JFrame {
     }
 
     public GraphicsDemo(byte initialNumberOfTrees) {
+        super("Graphics Demo with " + initialNumberOfTrees + " trees");
         this.add(new JLabel("Number of trees"));
         this.add(this.numberField);
         this.add(new TreePanel(DEFAULT_NUMBER_OF_TREES));

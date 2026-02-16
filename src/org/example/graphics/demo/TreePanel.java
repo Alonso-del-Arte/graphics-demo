@@ -37,6 +37,8 @@ public final class TreePanel extends JPanel implements MouseListener,
     
     private Point lastRecordedMousePosition = new Point(-1, -1);
     
+    private Point offset = new Point(0, 0);
+    
     private Tree selectedTree = null;
     
     private final java.util.List<Tree> listOfTrees;
@@ -65,10 +67,7 @@ public final class TreePanel extends JPanel implements MouseListener,
     
     @Override
     public void mouseClicked(MouseEvent event) {
-        int x = event.getX();
-        int y = event.getY();
-        Point point = new Point(x, y);
-        this.lastRecordedMousePosition = point;
+        //
     }
 
     @Override
@@ -83,7 +82,19 @@ public final class TreePanel extends JPanel implements MouseListener,
 
     @Override
     public void mousePressed(MouseEvent event) {
-        //
+        int x = event.getX();
+        int y = event.getY();
+        Point point = new Point(x, y);
+        for (Tree tree : this.listOfTrees) {
+            if (tree.contains(point)) {
+                this.hasTreeSelected = true;
+                this.selectedTree = tree;
+                Point corner = tree.getPosition();
+                this.offset = new Point(corner.x - point.x, corner.y - point.y);
+                this.lastRecordedMousePosition = point;
+                return;
+            }
+        }
     }
 
     @Override
@@ -100,7 +111,12 @@ public final class TreePanel extends JPanel implements MouseListener,
     @Override
     public void mouseDragged(MouseEvent event) {
         if (this.hasTreeSelected) {
-            //
+            Point treePos = this.selectedTree.getPosition();
+            Point relocated = new Point(event.getX(), event.getY());
+            this.lastRecordedMousePosition = relocated;
+//            relocated.move(this.offset.x, this.offset.y);
+            this.selectedTree.setPosition(relocated);
+            this.repaint();
         }
     }
 
