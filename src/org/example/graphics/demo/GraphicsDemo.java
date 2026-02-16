@@ -36,7 +36,7 @@ public final class GraphicsDemo extends JFrame {
     
     // TODO: Write tests for this
     public GraphicsDemo(byte initialNumberOfTrees) {
-        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     
     /**
