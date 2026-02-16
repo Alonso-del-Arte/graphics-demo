@@ -57,6 +57,14 @@ public class Tree {
         this.position = relocated;
     }
     
+    public boolean contains(Point p) {
+        int minX = this.position.x;
+        int minY = this.position.y;
+        int maxX = minX + this.dimension.width;
+        int maxY = minY + this.dimension.height;
+        return minX <= p.x && p.x <= maxX && minY <= p.y && p.y <= maxY;
+    }
+    
     public void paint(Graphics g) {
         g.setColor(this.upperColor);
         int vertexX = this.position.x + this.dimension.width / 2;
