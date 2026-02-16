@@ -34,8 +34,9 @@ public final class GraphicsDemo extends JFrame {
         this(DEFAULT_NUMBER_OF_TREES);
     }
     
+    // TODO: Write tests for this
     public GraphicsDemo(byte initialNumberOfTrees) {
-        //
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
     }
     
     /**
