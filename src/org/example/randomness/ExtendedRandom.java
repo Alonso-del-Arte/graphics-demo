@@ -48,9 +48,13 @@ public class ExtendedRandom {
         return new Color(nextInt(), true);
     }
     
-    // TODO: Write tests for this
     public static Point nextPoint() {
-        return new Point();
+        return new Point(RANDOM.nextInt(), RANDOM.nextInt());
+    }
+    
+    public static Point nextPoint(Dimension bound) {
+        return new Point(RANDOM.nextInt(bound.width), 
+                RANDOM.nextInt(bound.height));
     }
     
     public static Dimension nextDimension() {
