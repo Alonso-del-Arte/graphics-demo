@@ -51,6 +51,14 @@ public class TreeNGTest {
     }
     
     @Test
+    public void testGetLeafColorFromInstanceFrom1ParamConstructor() {
+        Tree instance = new Tree(DEFAULT_DIMENSION);
+        Color expected = Tree.DEFAULT_LEAF_COLOR;
+        Color actual = instance.getLeafColor();
+        assertEquals(actual, expected);
+    }
+    
+    @Test
     public void testGetLeafColor() {
         Color expected = nextColor();
         Tree instance = new Tree(expected, DEFAULT_DIMENSION);
