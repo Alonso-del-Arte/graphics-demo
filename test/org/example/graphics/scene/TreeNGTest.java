@@ -75,4 +75,12 @@ public class TreeNGTest {
         assertEquals(actual, expected);
     }
     
+    @Test
+    public void testGetTrunkColorFromInstanceFrom1ParamConstructor() {
+        Tree instance = new Tree(DEFAULT_DIMENSION);
+        Color expected = Tree.DEFAULT_TRUNK_COLOR;
+        Color actual = instance.getTrunkColor();
+        assertEquals(actual, expected);
+    }
+    
 }
