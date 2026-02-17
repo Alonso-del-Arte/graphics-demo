@@ -46,7 +46,7 @@ public class TreeNGTest {
     
     @Test
     public void testDefaultTrunkColorConstant() {
-        Color expected = new Color(128, 64, 0);;
+        Color expected = new Color(128, 64, 0);
         assertEquals(Tree.DEFAULT_TRUNK_COLOR, expected);
     }
     
