@@ -95,7 +95,7 @@ public class Tree {
     
     // TODO: Write tests for this
     public Tree(Color leafColor, Color trunkColor, Dimension size) {
-        this.upperColor = Color.BLUE;
+        this.upperColor = leafColor;
         this.lowerColor = Color.DARK_GRAY;
         this.lowLeafLevel = -2;
     }
