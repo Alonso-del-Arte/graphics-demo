@@ -60,6 +60,14 @@ public class TreePanel extends JPanel implements MouseListener,
     void setNumberOfTrees(byte treeCount) {
         // TODO: Write tests for this
     }
+    
+    void addListeners() {
+        // TODO: Write tests for this
+    }
+    
+    void removeListeners() {
+        // TODO: Write tests for this
+    }
 
     @Override
     public void mouseClicked(MouseEvent event) {
