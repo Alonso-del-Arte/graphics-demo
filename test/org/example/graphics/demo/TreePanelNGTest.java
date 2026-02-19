@@ -41,6 +41,15 @@ public class TreePanelNGTest {
     }
     
     @Test
+    public void testNoPrematureInitMouseMotionListeners() {
+        byte initialNumberOfTrees = (byte) ExtendedRandom.nextInt(128);
+        TreePanel instance = new TreePanel(initialNumberOfTrees);
+        MouseMotionListener[] expected = {};
+        MouseMotionListener[] actual = instance.getMouseMotionListeners();
+        assertEquals(actual, expected);
+    }
+    
+    @Test
     public void testGetNumberOfTrees() {
         byte expected = (byte) ExtendedRandom.nextInt(128);
         TreePanel instance = new TreePanel(expected);
