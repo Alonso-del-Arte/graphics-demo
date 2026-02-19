@@ -105,7 +105,6 @@ public class TreePanel extends JPanel implements MouseListener,
     public TreePanel(byte initialNumberOfTrees) {
         this.numberOfTrees = initialNumberOfTrees;
         this.listOfTrees = new ArrayList<>(this.numberOfTrees);
-        this.addMouseMotionListener(this);
     }
     
 }
