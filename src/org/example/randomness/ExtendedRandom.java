@@ -77,6 +77,28 @@ public class ExtendedRandom {
         return new Color(nextInt(), true);
     }
     
+    public static Color nextColor(Color origin, Color bound) {
+        int originR = origin.getRed();
+        int boundR = bound.getRed();
+        int r = originR;
+        if (originR != boundR) {
+            r = nextInt(originR, boundR);
+        }
+        int originG = origin.getGreen();
+        int boundG = bound.getGreen();
+        int g = originG;
+        if (originG != boundG) {
+            g = nextInt(originG, boundG);
+        }
+        int originB = origin.getBlue();
+        int boundB = bound.getBlue();
+        int b = originB;
+        if (originB != boundB) {
+            b = nextInt(originB, boundB);
+        }
+        return new Color(r, g, b);
+    }
+    
     public static Point nextPoint() {
         return new Point(RANDOM.nextInt(), RANDOM.nextInt());
     }
