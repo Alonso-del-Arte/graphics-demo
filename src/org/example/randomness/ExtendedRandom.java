@@ -44,6 +44,10 @@ public class ExtendedRandom {
         return 1 << shift;
     }
     
+    private static int nextGrayscaleValue() {
+        return RANDOM.nextInt(256);
+    }
+    
     public static Color nextColor() {
         return new Color(nextInt(), true);
     }
