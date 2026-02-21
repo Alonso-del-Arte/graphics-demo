@@ -32,6 +32,10 @@ import org.example.randomness.ExtendedRandom;
 public final class TreePanel extends JPanel implements MouseListener, 
         MouseMotionListener {
     
+    private static final Color MINIMUM_GREEN = new Color(0, 128, 0);
+    
+    private static final Color MAXIMUM_GREEN = new Color(0, 255, 0);
+    
     private byte numberOfTrees;
     
     private boolean hasTreeSelected = false;
@@ -45,7 +49,9 @@ public final class TreePanel extends JPanel implements MouseListener,
     private final java.util.List<Tree> listOfTrees;
     
     void addTree() {
-        this.listOfTrees.add(new Tree(Color.GREEN, new Dimension(50, 100), 
+        Color leafColor = ExtendedRandom.nextColor(MINIMUM_GREEN, 
+                MAXIMUM_GREEN);
+        this.listOfTrees.add(new Tree(leafColor, new Dimension(50, 100), 
                 ExtendedRandom.nextPoint(this.getPreferredSize())));
     }
     
