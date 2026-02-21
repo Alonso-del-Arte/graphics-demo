@@ -39,6 +39,31 @@ public class ExtendedRandom {
         return RANDOM.nextInt(bound);
     }
     
+    /**
+     * Provides a pseudorandom integer between a specified origin and bound. 
+     * Since {@code Random} in Java 8 does not provide such a function, this 
+     * function is not a simple static wrapper like the other two {@code 
+     * nextInt()} functions.
+     * @param origin The smallest integer that may be returned. May be 0, but 
+     * preferably a positive integer. For example, 128. Negative integers may 
+     * also be used. For example, &minus;128.
+     * @param bound One more than the maximum integer that may be returned. For 
+     * example, 256. Must not be equal to nor less than {@code origin}.
+     * @return An integer, at least {@code origin} but less than {@code bound}. 
+     * With the example parameters, this function may return values such as 241, 
+     * 155, 184, 204, 203, 248, 133. The values 128 and 255 may come up, but 256 
+     * should not. With the example {@code origin} of &minus;128, this function 
+     * may also return values such as 104, &minus;3, 170, &minus;6, &minus;108, 
+     * 95. In this example, &minus;128 may come up, as well as 255, but not 256.
+     * @throws IllegalArgumentException If {@code origin} is greater than {@code 
+     * bound}, or equal. For example, an {@code origin} of 256 with a {@code 
+     * bound} of 128 will trigger this exception.
+     */
+    public static int nextInt(int origin, int bound) {
+        int adjBound = bound - origin;
+        return origin + RANDOM.nextInt(adjBound);
+    }
+    
     public static int nextPowerOfTwo() {
         int shift = nextInt(31);
         return 1 << shift;
