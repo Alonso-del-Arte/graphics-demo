@@ -19,6 +19,7 @@ package org.example.graphics.demo;
 import java.awt.Graphics;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.EventListener;
 
 import org.example.randomness.ExtendedRandom;
 
@@ -47,6 +48,19 @@ public class TreePanelNGTest {
         MouseMotionListener[] expected = {};
         MouseMotionListener[] actual = instance.getMouseMotionListeners();
         assertEquals(actual, expected);
+    }
+    
+    @Test
+    public void testAddListeners() {
+        System.out.println("addListeners");
+        byte initialNumberOfTrees = (byte) ExtendedRandom.nextInt(128);
+        TreePanel instance = new TreePanel(initialNumberOfTrees);
+        instance.addListeners();
+        EventListener[] expected = {instance};
+        EventListener[] actual = instance.getMouseListeners();
+        assertEquals(actual, expected, "Checking mouse listeners");
+        actual = instance.getMouseMotionListeners();
+        assertEquals(actual, expected, "Checking mouse motion listeners");
     }
     
     @Test
