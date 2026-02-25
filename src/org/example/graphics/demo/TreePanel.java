@@ -67,7 +67,8 @@ public class TreePanel extends JPanel implements MouseListener,
     }
     
     void removeListeners() {
-        // TODO: Write tests for this
+        this.removeMouseListener(this);
+        this.removeMouseMotionListener(this);
     }
 
     @Override
