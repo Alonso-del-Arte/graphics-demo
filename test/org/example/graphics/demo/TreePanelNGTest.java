@@ -64,6 +64,20 @@ public class TreePanelNGTest {
     }
     
     @Test
+    public void testRemoveListeners() {
+        System.out.println("removeListeners");
+        byte initialNumberOfTrees = (byte) ExtendedRandom.nextInt(128);
+        TreePanel instance = new TreePanel(initialNumberOfTrees);
+        instance.addListeners();
+        instance.removeListeners();
+        EventListener[] expected = {};
+        EventListener[] actual = instance.getMouseListeners();
+        assertEquals(actual, expected, "Checking mouse listeners");
+        actual = instance.getMouseMotionListeners();
+        assertEquals(actual, expected, "Checking mouse motion listeners");
+    }
+    
+    @Test
     public void testGetNumberOfTrees() {
         byte expected = (byte) ExtendedRandom.nextInt(128);
         TreePanel instance = new TreePanel(expected);
