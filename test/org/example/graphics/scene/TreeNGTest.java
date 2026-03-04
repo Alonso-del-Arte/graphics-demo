@@ -22,6 +22,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 
 import static org.example.randomness.ExtendedRandom.nextColor;
+import static org.example.randomness.ExtendedRandom.nextInt;
 
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
@@ -87,6 +88,16 @@ public class TreeNGTest {
     public void testGetTrunkColorFromInstanceFrom2ParamConstructor() {
         Tree instance = new Tree(nextColor(), DEFAULT_DIMENSION);
         Color expected = Tree.DEFAULT_TRUNK_COLOR;
+        Color actual = instance.getTrunkColor();
+        assertEquals(actual, expected);
+    }
+    
+    @Test
+    public void getTrunkColor() {
+        System.out.println("getTrunkColor");
+        Color leafColor = new Color(256 + nextInt(256));
+        Color expected = nextColor();
+        Tree instance = new Tree(leafColor, expected, DEFAULT_DIMENSION);
         Color actual = instance.getTrunkColor();
         assertEquals(actual, expected);
     }
