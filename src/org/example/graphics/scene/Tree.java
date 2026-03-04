@@ -50,7 +50,6 @@ public class Tree {
         return this.upperColor;
     }
     
-    // TODO: Write tests for this
     public Color getTrunkColor() {
         return this.lowerColor;
     }
@@ -96,7 +95,7 @@ public class Tree {
     // TODO: Write tests for this
     public Tree(Color leafColor, Color trunkColor, Dimension size) {
         this.upperColor = leafColor;
-        this.lowerColor = Color.DARK_GRAY;
+        this.lowerColor = trunkColor;
         this.lowLeafLevel = -2;
     }
     
