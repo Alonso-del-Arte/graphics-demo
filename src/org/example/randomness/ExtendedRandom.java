@@ -98,7 +98,7 @@ public class ExtendedRandom {
     
     // TODO: Write tests for this
     public static Color nextColor(Color floor, Color ceiling) {
-        return new Color(nextInt(), true);
+        return Color.BLACK;
     }
     
     public static Point nextPoint() {
