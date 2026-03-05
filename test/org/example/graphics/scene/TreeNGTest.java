@@ -116,6 +116,16 @@ public class TreeNGTest {
     }
     
     @Test
+    public void testGetDimensionFrom2ParamConstructor() {
+        int width = nextInt(480, 3840);
+        int height = nextInt(640, 2160);
+        Dimension expected = new Dimension(width, height);
+        Tree instance = new Tree(nextColor(), expected);
+        Dimension actual = instance.getDimension();
+        assertEquals(actual, expected);
+    }
+    
+    @Test
     public void test1ParamConstructorRejectsDimensionWithNegativeWidth() {
         int width = -nextInt(256) - 1;
         int height = nextInt(256) + 1;
