@@ -102,7 +102,7 @@ public class Tree {
         this.upperColor = leafColor;
         this.lowerColor = DEFAULT_TRUNK_COLOR;
         this.lowLeafLevel = -1;
-        this.area = new Dimension(1, 2);
+        this.area = size;
     }
     
     // TODO: Write tests for this
