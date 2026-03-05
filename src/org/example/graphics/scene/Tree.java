@@ -114,7 +114,7 @@ public class Tree {
         this.upperColor = leafColor;
         this.lowerColor = trunkColor;
         this.lowLeafLevel = -2;
-        this.area = new Dimension(3, 1);
+        this.area = size;
     }
     
 }
