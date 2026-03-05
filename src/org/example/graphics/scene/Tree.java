@@ -80,32 +80,42 @@ public class Tree {
         // TODO: Write tests for this
     }
 
-    // TODO: Write tests for this
-    // TODO: Chain constructors once all tests are written
+    /**
+     * Auxiliary constructor. {@link #DEFAULT_LEAF_COLOR} and {@link 
+     * #DEFAULT_TRUNK_COLOR} are filled in for the leaf and trunk colors.
+     * @param size The dimension of the tree. Both height and width need to be 
+     * positive.
+     * @throws IllegalArgumentException If either the height or the width of 
+     * {@code size} is 0 or negative.
+     */
     public Tree(Dimension size) {
-        if (size.width < 1 || size.height < 1) {
-            String excMsg = size.toString() + " is not valid";
-            throw new IllegalArgumentException(excMsg);
-        }
-        this.upperColor = DEFAULT_LEAF_COLOR;
-        this.lowerColor = DEFAULT_TRUNK_COLOR;
-        this.lowLeafLevel = -1;
-        this.area = size;
+        this(DEFAULT_LEAF_COLOR, DEFAULT_TRUNK_COLOR, size);
     }
     
-    // TODO: Write tests for this
+    /**
+     * Auxiliary constructor. {@link #DEFAULT_TRUNK_COLOR} is filled in for the 
+     * trunk color.
+     * @param leafColor The color for the leaves. For example, a medium dark 
+     * green.
+     * @param size The dimension of the tree. Both height and width need to be 
+     * positive.
+     * @throws IllegalArgumentException If either the height or the width of 
+     * {@code size} is 0 or negative.
+     */
     public Tree(Color leafColor, Dimension size) {
-        if (size.width < 1 || size.height < 1) {
-            String excMsg = size.toString() + " is not valid";
-            throw new IllegalArgumentException(excMsg);
-        }
-        this.upperColor = leafColor;
-        this.lowerColor = DEFAULT_TRUNK_COLOR;
-        this.lowLeafLevel = -1;
-        this.area = size;
+        this(leafColor, DEFAULT_TRUNK_COLOR, size);
     }
     
-    // TODO: Write tests for this
+    /**
+     * Primary constructor.
+     * @param leafColor The color for the leaves. For example, a medium light 
+     * green.
+     * @param trunkColor The color for the trunk. For example, a dark brown.
+     * @param size The dimension of the tree. Both height and width need to be 
+     * positive.
+     * @throws IllegalArgumentException If either the height or the width of 
+     * {@code size} is 0 or negative.
+     */
     public Tree(Color leafColor, Color trunkColor, Dimension size) {
         if (size.width < 1 || size.height < 1) {
             String excMsg = size.toString() + " is not valid";
@@ -113,7 +123,7 @@ public class Tree {
         }
         this.upperColor = leafColor;
         this.lowerColor = trunkColor;
-        this.lowLeafLevel = -2;
+        this.lowLeafLevel = -3;
         this.area = size;
     }
     
