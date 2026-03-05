@@ -264,4 +264,24 @@ public class TreeNGTest {
         System.out.println("\"" + excMsg + "\"");
     }
     
+    @Test
+    public void test3ParamConstructorRejectsDimensionWithNegativeWidth() {
+        int width = -nextInt(256) - 1;
+        int height = nextInt(256) + 1;
+        Dimension size = new Dimension(width, height);
+        String dimStr = size.toString();
+        String msg = dimStr + " should cause exception";
+        Throwable t = assertThrows(() -> {
+            Tree badResult = new Tree(nextColor(), nextColor(), size);
+            System.out.println(msg + ", not given " + badResult.toString());
+        }, IllegalArgumentException.class, msg);
+        String excMsg = t.getMessage();
+        assert excMsg != null : "Exception message should not be null";
+        assert !excMsg.isBlank() : "Exception message should not be false";
+        String containsMsg = "Exception message should contain \"" + dimStr 
+                + "\"";
+        assert excMsg.contains(dimStr) : containsMsg;
+        System.out.println("\"" + excMsg + "\"");
+    }
+    
 }
