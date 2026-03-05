@@ -42,6 +42,8 @@ public class Tree {
     
     private final Color upperColor, lowerColor;
     
+    private final Dimension area;
+    
     private Point position = new Point();
     
     private final int lowLeafLevel;
@@ -56,7 +58,7 @@ public class Tree {
     
     // TODO: Write tests for this
     public Dimension getDimension() {
-        return new Dimension(1, 1);
+        return this.area;
     }
     
     // TODO: Write tests for this
@@ -88,6 +90,7 @@ public class Tree {
         this.upperColor = DEFAULT_LEAF_COLOR;
         this.lowerColor = DEFAULT_TRUNK_COLOR;
         this.lowLeafLevel = -1;
+        this.area = size;
     }
     
     // TODO: Write tests for this
@@ -99,6 +102,7 @@ public class Tree {
         this.upperColor = leafColor;
         this.lowerColor = DEFAULT_TRUNK_COLOR;
         this.lowLeafLevel = -1;
+        this.area = new Dimension(1, 2);
     }
     
     // TODO: Write tests for this
@@ -110,6 +114,7 @@ public class Tree {
         this.upperColor = leafColor;
         this.lowerColor = trunkColor;
         this.lowLeafLevel = -2;
+        this.area = new Dimension(3, 1);
     }
     
 }
