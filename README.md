@@ -16,7 +16,7 @@ Presently you're looking at the main branch. On February 1, 2026, I decided to
 make a quick and dirty branch in which I would suspend my usual methodology to 
 get this demo out quickly and not hold up the Medium article much longer. But 
 I'm finding that trying to do this quick and dirty is actually kind of slow for 
-me.
+me. I'm hoping to publish the article on March 5, 2026.
 
 Also, and this is kind of arbitrary, I downgraded the quick and dirty branch to 
 Java 8.
