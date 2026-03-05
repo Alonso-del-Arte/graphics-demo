@@ -92,7 +92,7 @@ public class Tree {
     
     // TODO: Write tests for this
     public Tree(Color leafColor, Dimension size) {
-        if (size.width < 1 || size.height < 0) {
+        if (size.width < 1 || size.height < 1) {
             String excMsg = size.toString() + " is not valid";
             throw new IllegalArgumentException(excMsg);
         }
