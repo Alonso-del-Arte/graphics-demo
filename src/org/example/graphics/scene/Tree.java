@@ -79,8 +79,9 @@ public class Tree {
     }
 
     // TODO: Write tests for this
+    // TODO: Chain constructors once all tests are written
     public Tree(Dimension size) {
-        if (size.width < 0) {
+        if (size.width < 0 || size.height < 0) {
             String excMsg = size.toString() + " is not valid";
             throw new IllegalArgumentException(excMsg);
         }
