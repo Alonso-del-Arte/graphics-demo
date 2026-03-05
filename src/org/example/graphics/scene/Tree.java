@@ -92,6 +92,10 @@ public class Tree {
     
     // TODO: Write tests for this
     public Tree(Color leafColor, Dimension size) {
+        if (size.width < 0) {
+            String excMsg = size.toString() + " is not valid";
+            throw new IllegalArgumentException(excMsg);
+        }
         this.upperColor = leafColor;
         this.lowerColor = DEFAULT_TRUNK_COLOR;
         this.lowLeafLevel = -1;
